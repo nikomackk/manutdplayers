@@ -13,12 +13,10 @@ crossorigin="anonymous">
 	<table class="text-white table table-striped text-center">
 		<tr>
 			<th>Nationality</th>
-			<th sec:authorize="hasAuthority('ADMIN')">Delete</th>
 		</tr>
 
 		<tr th:each="nationality : ${nationalities}">
 			<td th:text="${nationality.name}">Nationality</td>
-			<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-warning" th:href="@{/deletenationality/{id}(id=${nationality.nationalityid})}">Delete</a></td>
 		</tr>
 	</table>
 	</div>
