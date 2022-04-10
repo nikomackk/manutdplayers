@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+crossorigin="anonymous">
+<title>Man Utd players</title>
+</head>
+<body class="p-3 mb-2 bg-danger text-dark">
+	<h1 th:inline="text" class="text-center">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
+	<br>
+	<br>
+	<div class="d-flex justify-content-center">
+		<h3><a href="playerlist" class="text-white">Playerlist</a></h3>
+	</div>
+	<br>
+	<br>
+	<div class="d-flex justify-content-center">
+		<h3><a href="positionlist" class="text-white">Positionlist</a></h3>
+	</div>
+	<br>
+	<br>
+	<div class="d-flex justify-content-center">
+		<h3><a href="nationalitylist" class="text-white">Nationalitylist</a></h3>
+	</div>
+	<br>
+	<br>
+	<div class="d-flex justify-content-center">
+		<h3><a href="login" class="text-white">Login</a></h3>	
+	</div>
+	<br>
+	<br>
+	<div class="d-flex justify-content-center">
+	<form th:action="@{/logout}" method="post">
+ 		<input sec:authorize="hasAuthority('ADMIN')" class="btn btn-warning" type="submit" value="Sign Out"/>
+	</form>
+	</div>
+</body>
+</html>

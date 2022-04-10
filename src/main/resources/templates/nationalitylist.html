@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Nationalitylist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+crossorigin="anonymous">
+</head>
+<body class="p-3 mb-2 bg-danger text-dark">
+	<h1 class="text-center">Nationalities</h1>
+	<div class="d-flex justify-content-center">
+	<table class="text-white table table-striped text-center">
+		<tr>
+			<th>Nationality</th>
+			<th sec:authorize="hasAuthority('ADMIN')">Delete</th>
+		</tr>
+
+		<tr th:each="nationality : ${nationalities}">
+			<td th:text="${nationality.name}">Nationality</td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-warning" th:href="@{/deletenationality/{id}(id=${nationality.nationalityid})}">Delete</a></td>
+		</tr>
+	</table>
+	</div>
+	<p>
+	<p>
+	<p>
+	<div class="text-center">
+	<a sec:authorize="hasAuthority('ADMIN')" class="btn btn-warning" href="addnationality">Add Nationality</a>
+	</div>
+	<div class="text-center">
+	<a class="btn btn-warning m-3 pb-2 " href="/">Home</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Playerlist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+crossorigin="anonymous">
+</head>
+<body class="p-3 mb-2 bg-danger text-white">
+	<h1 class="text-center text-dark">Manchester United Players</h1>
+	<div class="d-flex justify-content-center">
+		<a  class="btn btn-warning m-3 pb-2 " href="/">Home</a>
+		<a sec:authorize="hasAuthority('ADMIN')" class="btn btn-warning m-3 pb-2 " href="/addplayer">Add Player</a>
+		<a sec:authorize="hasAuthority('ADMIN')" class="btn btn-warning m-3 pb-2 " href="/addposition">Add Position</a> 
+		<a sec:authorize="hasAuthority('ADMIN')" class="btn btn-warning m-3 pb-2 " href="/addnationality">Add Nationality</a> 
+	</div>
+	<div class="d-flex justify-content-center">
+		<table class="table table-striped text-center">
+			<tr>
+				<th>Name</th>
+				<th>Number</th>
+				<th>Nationality</th>
+				<th>Position</th>
+				<th sec:authorize="hasAuthority('ADMIN')">Edit</th>
+				<th sec:authorize="hasAuthority('ADMIN')">Delete</th>
+			</tr>
+	
+			<tr th:each="player : ${players}">
+				<td th:text="${player.name}">Name</td>
+				<td th:text="${player.number}">Number</td>
+				<td th:text="${player.nationality.name}">Nationality</td>
+				<td th:text="${player.position.name}">Position</td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-dark" th:href="@{/edit/{id}(id=${player.id})}">Edit</a></td>
+				<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-warning" th:href="@{/delete/{id}(id=${player.id})}">Delete</a></td>
+			</tr>
+		</table>
+	</div>
+	
+	
+</body>
+</html>

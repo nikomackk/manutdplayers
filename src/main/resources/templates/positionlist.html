@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Positionlist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+crossorigin="anonymous">
+</head>
+<body class="p-3 mb-2 bg-danger text-dark">
+	<h1 class="text-center" >Positions</h1>
+	<div class="d-flex justify-content-center">
+	<table class="text-white table table-striped text-center">
+		<tr>
+			<th>Position</th>
+			<th sec:authorize="hasAuthority('ADMIN')">Delete</th>
+		</tr>
+
+		<tr th:each="position : ${positions}">
+			<td th:text="${position.name}">Position</td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-warning" th:href="@{/deleteposition/{id}(id=${position.positionid})}">Delete</a></td>
+		</tr>
+	</table>
+	</div>
+	<p></p>
+	<p></p>
+	<p></p>
+	<div class="text-center">
+	<a sec:authorize="hasAuthority('ADMIN')" class="btn btn-warning" href="addposition">Add Position</a> 
+	</div>
+	<div class="text-center">
+	<a class="btn btn-warning m-3 pb-2 " href="/">Home</a>
+	</div>
+</body>
+</html>
