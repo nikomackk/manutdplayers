@@ -27,7 +27,7 @@ import com.example.ManUtd.domain.UserRepository;
 // 5. Validation		OK
 // 6. REST				OK
 // 7. JUnit Test		OK
-// 8. REACT / Joku toiminnallisuus
+// 8. REACT / Joku toiminnallisuus // multilang, fileuppaus?
 
 @SpringBootApplication
 public class ManUtdApplication {

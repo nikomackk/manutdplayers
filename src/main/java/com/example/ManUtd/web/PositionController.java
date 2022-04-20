@@ -21,10 +21,10 @@ public class PositionController {
 	private PositionRepository positionRepository;
 	
 	//Pelaajalista REST 
-	/*@RequestMapping(value= "positions", method= RequestMethod.GET)
+	@RequestMapping(value= "positions", method= RequestMethod.GET)
 	public @ResponseBody List<Position> positionListRest() {
 		return (List<Position>) positionRepository.findAll();
-	}*/
+	}
 	
 	// Haetaan positionit tietokannasta ja ohjataan listaan
 	@RequestMapping(value= "positionlist", method= RequestMethod.GET)

@@ -21,10 +21,10 @@ public class NationalityController {
 	private NationalityRepository nationalityRepository;
 	
 	//Nationalitylist REST 
-	/*@RequestMapping(value= "nationalities", method= RequestMethod.GET)
+	@RequestMapping(value= "nationalities", method= RequestMethod.GET)
 	public @ResponseBody List<Nationality> nationalityListRest() {
 		return (List<Nationality>) nationalityRepository.findAll();
-	}*/
+	}
 	
 	// Haetaan tietokannasta kansallisuudet ja ohjataan nationalitylistiin
 	@RequestMapping(value= "nationalitylist", method = RequestMethod.GET)
